@@ -1,6 +1,7 @@
-
+- Base de datos: db_estudiodg
+-----------------------------
 - Tabla: Categorias (id_categoria,nombre)
 
 - Tabla: Productos (id_categoria,id_producto,nombre,precio)
 
-- Tabla: Usuarios (id_usuario, nombre, clave)
+- Tabla: Usuarios (id_usuario, email, nombre, clave)
