@@ -8,19 +8,15 @@
         }
         
         public function getCategorias(){
-            $query = $this->db->prepare('SELECT * FROM categorias');
-            $ok = $query->execute();
-            if (!ok){
-                var_dump($query->errorInfo());
-                die();
-            }
+            $query = $this->db->prepare("SELECT * FROM categorias");
+            $query->execute();
             $categs = $query->fetchAll(PDO::FETCH_OBJ);
             return $categs;
         }
 
         public function getCategoriaOrdenada($categoria){
             $query = $this->db->prepare("SELECT * FROM productos WHERE id_categoria = ? ORDER BY nombre ASC");
-            $->execute(array($id));
+            $query->execute(array($id_categoria));
             $film = $sentencia->fetch(PDO::FETCH_OBJ);
             return $film;
         }

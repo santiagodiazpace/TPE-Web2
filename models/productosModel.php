@@ -8,12 +8,8 @@
         }
 
         public function getProductos(){
-            $query = $this->db->prepare('SELECT * FROM productos');
-            $ok = $query->execute();
-            if (!ok){
-                var_dump($query->errorInfo());
-                die();
-            }
+            $query = $this->db->prepare("SELECT * FROM productos");
+            $query->execute();
             $prods = $query->fetchAll(PDO::FETCH_OBJ);
             return $prods;
         }

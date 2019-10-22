@@ -1,14 +1,12 @@
-{include file="header.tpl"}
-
-    <table border="1">
-        <tbody>
-            {foreach from=$categorias item=categoria}
-                <tr>
-                    <td>{$producto->id_producto}</td>
-                    <td>{$producto->nombre}</td>
-                    <td>{$producto->precio}</td>
-                </tr>
-        </tbody>
-    </table>
-</body>
-</html>
+<table>
+    <tbody>
+        {foreach from=$productos item=producto}
+            <tr>
+                <td>{$producto->id_producto}</td>
+                <td>{$producto->id_categoria}</td>
+                <td>{$producto->nombre}</td>
+                <td>{$producto->precio}</td>
+            </tr>
+        {/foreach}   
+    </tbody>
+</table>

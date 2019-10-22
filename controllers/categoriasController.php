@@ -5,12 +5,13 @@
     class CategoriasController{
         private $viewCategorias;
         private $modelCategorias;
+        
         public function __construct(){
             $this->viewCategorias = new CategoriasView;
             $this->modelCategorias = new CategoriasModel;
         }
         public function showCategorias(){
             $categ = $this->modelCategorias->getCategorias();
-            $this->viewGeneros->displayCategorias($categ);
+            $this->viewCategorias->displayCategorias($categ);
         }
     }

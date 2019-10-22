@@ -5,6 +5,7 @@
     class ProductosController{
         private $viewProductos;
         private $modelProductos;
+        
         public function __construct(){
             $this->viewProductos = new ProductosView;
             $this->modelproductos = new ProductosModel;
