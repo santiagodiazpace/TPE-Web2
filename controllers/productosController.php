@@ -8,7 +8,7 @@
         
         public function __construct(){
             $this->viewProductos = new ProductosView;
-            $this->modelproductos = new ProductosModel;
+            $this->modelProductos = new ProductosModel;
         }
         public function showProductos(){
             $prods = $this->modelProductos->getProductos();
