@@ -10,20 +10,12 @@
         public function insertUser($nombre, $email, $clave){
             $hash = password_hash($clave, PASSWORD_DEFAULT);
             $query = $this->db->prepare('INSERT INTO usuarios(nombre, email, clave) VALUES (?,?,?)');
-            $ok = $query->execute(array($nombre, $email, $hash));
-            if (!$ok){
-                var_dump($query->errorInfo());
-                die();
-            }
+            $query->execute(array($nombre, $email, $hash));
         }
 
         public function getUsuarios(){
             $query = $this->db->prepare('SELECT * FROM usuarios');
-            $ok = $query->execute();
-            if (!$ok){
-                var_dump($query->errorInfo());
-                die();
-            }
+            $query->execute();
             $users = $query->fetchALL(PDO::FETCH_OBJ);
             return $users;
         }

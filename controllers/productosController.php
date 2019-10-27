@@ -2,7 +2,8 @@
     require_once('./views/productosView.php');
     require_once('./models/productosModel.php');
     
-    class ProductosController{
+    class ProductosController {
+
         private $viewProductos;
         private $modelProductos;
         
@@ -13,5 +14,25 @@
         public function showProductos(){
             $prods = $this->modelProductos->getProductos();
             $this->viewProductos->displayProductos($prods);
+        }
+
+        public function showProductosOrdenados(){
+            $prods = $this->modelProductos->getProductosOrdenadosPorCategoria();
+            $this->viewProductos->displayProductos($prods);
+        }
+
+        public function addProducto(){
+            $this->modelProductos->insertarProducto($_POST['id_categoria'],$_POST['nombre'],$_POST['precio']);
+            header("Location: " . BASE_URL);
+        }
+
+        public function deleteProducto(){
+            $this->modelProductos->borrarProducto($_POST['id_producto']);
+            header("Location: " . BASE_URL);
+         }
+
+        public function editProducto(){
+            $this->modelProductos->editarProducto($_POST['id_producto'],$_POST['id_categoria'],$_POST['nombre'],$_POST['precio']);
+            header("Location: " . BASE_URL);
         }
     }

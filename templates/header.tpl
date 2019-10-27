@@ -8,5 +8,4 @@
     <title>{$titulo}</title>
 </head>
 <body>
-
-    <h1>{$titulo}</h1>
+    <h1>ESTUDIO DE DISEÑO</h1>

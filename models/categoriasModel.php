@@ -1,5 +1,5 @@
 <?php
-    class CategoriasModel{
+    class CategoriasModel {
 
         private $db;
         
@@ -12,13 +12,6 @@
             $query->execute();
             $categs = $query->fetchAll(PDO::FETCH_OBJ);
             return $categs;
-        }
-
-        public function getCategoriaOrdenada($categoria){
-            $query = $this->db->prepare("SELECT * FROM productos WHERE id_categoria = ? ORDER BY nombre ASC");
-            $query->execute(array($id_categoria));
-            $film = $sentencia->fetch(PDO::FETCH_OBJ);
-            return $film;
         }
 
         public function insertarCategoria($nombre){

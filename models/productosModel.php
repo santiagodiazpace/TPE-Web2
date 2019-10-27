@@ -1,11 +1,19 @@
 <?php
-    class ProductosModel{
+    class ProductosModel {
         
         private $db;
 
         public function __construct(){
             $this->db = new PDO('mysql:host=localhost;'.'dbname=db_estudiodg;charset=utf8', 'root', '');
+            $this->tabla="productos";
         }
+
+        public function getProducto($id_producto) {
+            $query = $this->db->prepare('SELECT * FROM productos WHERE id_producto = ?');
+            $query->execute(array($id));
+            $prod = $query->fetch(PDO::FETCH_OBJ);
+            return $prod;
+        }        
 
         public function getProductos(){
             $query = $this->db->prepare("SELECT * FROM productos");
@@ -13,33 +21,13 @@
             $prods = $query->fetchAll(PDO::FETCH_OBJ);
             return $prods;
         }
-
-        public function getProductosOrdenados(){
-            $query = $this->db->prepare("SELECT * from productos ORDER BY nombre ASC");
-            $query->execute();
-            $prods = $query->fetchAll(PDO::FETCH_OBJ);
-            return $prods;
-        }
         
-        public function getCategoria($id_categoria){
-            $query = $this->db->prepare("SELECT * FROM productos WHERE id_categoria = ? ORDER BY nombre ASC");
-            $query->execute(array($id_producto));
-            $prods = $query->fetch(PDO::FETCH_OBJ);   // VA FETCHALL  ??????
-            return $prods;
+        public function getProductosOrdenadosPorCategoria(){
+            $select = $this->db->prepare("SELECT productos.*, categorias.id_categoria as Categoria FROM ".$this->tabla." JOIN categorias ON productos.id_categoria = categorias.id_categoria ORDER BY id_categoria ASC");
+            $select->execute();
+            $productos = $select->fetchAll(PDO::FETCH_OBJ);
+            return $productos;
         }
-        
-        public function getFilms($id, $tipo){
-            if ($tipo)
-                {$sentencia = $this->db->prepare("SELECT * from film AS f JOIN categorias AS c ON c.genero = f.genero WHERE c.id = ? AND f.tipo = ? ORDER BY nombre ASC");
-                $sentencia->execute(array($id, $tipo));
-            }else{
-                $sentencia = $this->db->prepare("SELECT * from film AS f JOIN categorias AS c ON c.genero = f.genero WHERE c.id = ? ORDER BY nombre ASC");
-                $sentencia->execute(array($id));
-            }
-            $categoria = $sentencia->fetchAll(PDO::FETCH_OBJ);
-            return $categoria;
-        }
-
 
         public function insertarProducto($id_categoria,$nombre,$precio){
             $query = $this->db->prepare("INSERT INTO productos (id_categoria, nombre, precio) VALUES(?,?,?)");
@@ -48,8 +36,12 @@
 
 
         public function borrarProducto($id_producto){
-            $query = $this->db->prepare("DELETE FROM productos WHERE id_producto=?");
+            $query = $this->db->prepare("DELETE FROM productos WHERE id_producto = ?");
             $query->execute(array($id_producto));
         }
-        
+
+        public function editarProducto($id_producto,$id_categoria,$nombre,$precio){
+            $query = $this->db->prepare("UPDATE productos SET id_categoria = ?, nombre = ?, precio = ?, WHERE id_producto = ?");
+            $query->execute(array($id_producto,$id_categoria,$nombre,$precio));
+        }
     }

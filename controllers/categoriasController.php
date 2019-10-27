@@ -2,7 +2,8 @@
     require_once('./models/categoriasModel.php');
     require_once('./views/categoriasView.php');
 
-    class CategoriasController{
+    class CategoriasController {
+        
         private $viewCategorias;
         private $modelCategorias;
         
