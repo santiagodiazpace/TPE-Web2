@@ -23,8 +23,8 @@
         }
         
         public function getProductosOrdenadosPorCategoria(){
-            $select = $this->db->prepare("SELECT productos.*, categorias.id_categoria as Categoria FROM ".$this->tabla." JOIN categorias ON productos.id_categoria = categorias.id_categoria ORDER BY id_categoria ASC");
-            $select->execute();
+            $query = $this->db->prepare("SELECT productos.*, categorias.id_categoria as Categoria FROM ".$this->tabla." JOIN categorias ON productos.id_categoria = categorias.id_categoria ORDER BY id_categoria ASC");
+            $query->execute();
             $productos = $select->fetchAll(PDO::FETCH_OBJ);
             return $productos;
         }

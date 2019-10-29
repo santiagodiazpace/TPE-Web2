@@ -26,6 +26,6 @@
             $productosController->deleteProducto($url[1]);         
     }else        
     if($action[0]=='editar'){
-        $productosController->editProducto();         
+        $productosController->editProducto($url[1]);         
 }
 
