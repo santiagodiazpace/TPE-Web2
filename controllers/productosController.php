@@ -16,6 +16,16 @@
             $this->viewProductos->displayProductos($prods);
         }
 
+        public function showDetalleProducto($id_producto){
+            $prod = $this->modelProductos->getProducto($id_producto);
+            $this->viewProductos->displayDetalleProducto($prod);
+        }
+
+        public function editProducto($id_producto){
+            $this->modelProductos->editarProducto($id_producto,$_POST['id_categoria'],$_POST['nombre'],$_POST['precio']);
+            $this->viewProductos->displayEditarProducto($id_producto);
+        }
+
         public function showProductosOrdenados(){
             $prods = $this->modelProductos->getProductosOrdenadosPorCategoria();
             $this->viewProductos->displayProductos($prods);
@@ -26,13 +36,9 @@
             header("Location: " . BASE_URL);
         }
 
-        public function deleteProducto(){
-            $this->modelProductos->borrarProducto($_POST['id_producto']);
+        public function deleteProducto($id_producto){
+            $this->modelProductos->borrarProducto($id_producto);
             header("Location: " . BASE_URL);
          }
 
-        public function editProducto(){
-            $this->modelProductos->editarProducto($_POST['id_producto'],$_POST['id_categoria'],$_POST['nombre'],$_POST['precio']);
-            header("Location: " . BASE_URL);
-        }
     }

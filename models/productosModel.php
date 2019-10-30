@@ -10,7 +10,7 @@
 
         public function getProducto($id_producto) {
             $query = $this->db->prepare('SELECT * FROM productos WHERE id_producto = ?');
-            $query->execute(array($id));
+            $query->execute(array($id_producto));
             $prod = $query->fetch(PDO::FETCH_OBJ);
             return $prod;
         }        
@@ -22,12 +22,12 @@
             return $prods;
         }
         
-        public function getProductosOrdenadosPorCategoria(){
+        /*public function getProductosOrdenadosPorCategoria(){
             $query = $this->db->prepare("SELECT productos.*, categorias.id_categoria as Categoria FROM ".$this->tabla." JOIN categorias ON productos.id_categoria = categorias.id_categoria ORDER BY id_categoria ASC");
             $query->execute();
             $productos = $select->fetchAll(PDO::FETCH_OBJ);
             return $productos;
-        }
+        }*/
 
         public function insertarProducto($id_categoria,$nombre,$precio){
             $query = $this->db->prepare("INSERT INTO productos (id_categoria, nombre, precio) VALUES(?,?,?)");

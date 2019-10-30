@@ -11,37 +11,36 @@
                     <td>{$producto->id_categoria}</td>
                     <td>{$producto->nombre}</td>
                     <td>{$producto->precio}</td>
+                    <td>
+                        <form action="productos/borrar/{$producto->id_producto}" method="post">
+                            <button value="{$producto->id_producto}" type="submit">Borrar</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="productos/detalle/{$producto->id_producto}" method="post">
+                            <button value="{$producto->id_producto}" type="submit">Detalle</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="productos/editar/{$producto->id_producto}" method="post">
+                            <button value="{$producto->id_producto}" type="submit">Editar</button>
+                        </form>
+                    </td>
                 </tr>
             {/foreach}   
         </tbody>
     </table>
-    <h2>MODIFICACIONES</h2>
-    <form action="insertar" method="post">
-        <div>
-        Categoria:<input type="number" name="id_categoria">
-        Nombre:<input type="text" name="nombre">
-        Precio:<input type="number" name="precio">
-        <button type="submit">Insertar</button>
-        </div>
-    </form>
-
-    <form action="editar" method="post">
-        <div>
-        ID Producto:<input type="number" name="id_producto">
-        Categoria:<input type="number" name="id_categoria">
-        Nombre:<input type="text" name="nombre">
-        Precio:<input type="number" name="precio">
-        <button type="submit">Editar</button>
-        </div>
-    </form>
-
-    <form action="borrar" method="post">
-        <div>
-        ID Producto:<input type="number" name="id_producto">
-        <button type="submit">Borrar</button>
-        </div>
-    </form>
-
+    <h2>INSERTAR</h2>
+    <div>
+        <form action="productos/insertar" method="post">
+            <div>
+            Categoria:<input type="number" name="id_categoria">
+            Nombre:<input type="text" name="nombre">
+            Precio:<input type="number" name="precio">
+            <button type="submit">Insertar</button>
+            </div>
+        </form>
+    </div>
     </body>
 </html>
 {include file="footer.tpl"}
