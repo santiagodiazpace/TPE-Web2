@@ -1,25 +1,26 @@
 
 <?php
-    require_once("./libs/Smarty.class.php");
 
-    class UserView{
+require_once('libs/Smarty.class.php');
 
-        public function registroExitoso(){
-            $smarty = new Smarty();
-            $smarty->assign('titulo',"registro ok");
-            $smarty->assign('BASE_REGISTRO_OK',$BASE_REGISTRO_OK);
-            $smarty->display('./templates/registro_exitoso.tpl');
-        }
+class UserView {
+    private $smarty;
 
-        public function displayRegistro(){
-            $smarty = new Smarty();
-            $smarty->assign('titulo',"registro");
-            $smarty->display('./templates/registro.tpl');
-        }
-
-        public function displayLogin(){
-            $smarty = new Smarty();
-            $smarty->assign('titulo',"login");
-            $smarty->display('./templates/login.tpl');
-        }
+    function __construct(){
+        $this->smarty = new Smarty();
     }
+    
+    public function displayLogin($error = null){
+        $this->smarty->assign('titulo',"Iniciar Sesión");
+        $this->smarty->assign('error',$error);
+        $this->smarty->assign('BASE_URL',BASE_URL);
+        $this->smarty->display('templates/login.tpl');
+    }
+
+    public function displayRegistro($error = null){
+        $this->smarty->assign('titulo','Registrar');
+        $this->smarty->assign('error',$error);
+        $this->smarty->assign('BASE_URL',BASE_URL);
+        $this->smarty->display('templates/registro.tpl');
+    }
+}

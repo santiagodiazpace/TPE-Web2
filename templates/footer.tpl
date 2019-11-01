@@ -1,3 +1,7 @@
 </body>
-    <h2>TPE WEB 2 - Santiago Diaz Pace<h2>
+    <footer>
+        <div class="imagen_pie">
+            <img id="imagen_pie" src="./imagenes/el_pie.png" height="60px" alt="datos de contacto">
+        </div>
+    </footer>
 </html>

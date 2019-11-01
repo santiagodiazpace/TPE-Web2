@@ -12,17 +12,17 @@
                     <td>{$producto->nombre}</td>
                     <td>{$producto->precio}</td>
                     <td>
-                        <form action="productos/borrar/{$producto->id_producto}" method="post">
+                        <form action="productos/borrar/{$producto->id_producto}">
                             <button value="{$producto->id_producto}" type="submit">Borrar</button>
                         </form>
                     </td>
                     <td>
-                        <form action="productos/detalle/{$producto->id_producto}" method="post">
+                        <form action="productos/detalle/{$producto->id_producto}">
                             <button value="{$producto->id_producto}" type="submit">Detalle</button>
                         </form>
                     </td>
                     <td>
-                        <form action="productos/editar/{$producto->id_producto}" method="post">
+                        <form action="productos/formularioeditar/{$producto->id_producto}">
                             <button value="{$producto->id_producto}" type="submit">Editar</button>
                         </form>
                     </td>

@@ -27,9 +27,11 @@
                 }  
                 else if ((isset($partesURL[1]))&&(isset($partesURL[2]))&&($partesURL[1] == "borrar")){
                     $productosController->deleteProducto($partesURL[2]);
-                }
-                else if ((isset($partesURL[1]))&&(isset($partesURL[2]))&&($partesURL[1] == "editar")){
+                }                else if ((isset($partesURL[1]))&&(isset($partesURL[2]))&&($partesURL[1] == "editar")){
                     $productosController->editProducto($partesURL[2]);
+                }
+                else if ((isset($partesURL[1]))&&(isset($partesURL[2]))&&($partesURL[1] == "formularioeditar")){
+                    $productosController->showEditarProducto($partesURL[2]);
                 }
                 else if ((isset($partesURL[1]))&&(isset($partesURL[2]))&&($partesURL[1] == "detalle")){
                     $productosController->showDetalleProducto($partesURL[2]);
@@ -44,17 +46,17 @@
             else if($partesURL[0] == "login") {
                 $userController->showLogin();
             }
-            else if($partesURL[0] == "iniciarSesion") {
+            else if($partesURL[0] == "iniciarsesion") {
                 $userController->iniciarSesion();
             }
             else if($partesURL[0] == "logout") {
                 $userController->showLogout();
             }
             else if($partesURL[0] == "registrar") {
-                $userController->showRegister();
+                $userController->showRegistro();
             }
-            else if($partesURL[0] == "usuarioNuevo") {
-                $userController->register();
+            else if($partesURL[0] == "usuarionuevo") {
+                $userController->registro();
             }
         }
     }

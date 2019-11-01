@@ -1,0 +1,20 @@
+.imagen_pie {
+    text-align: center;
+    padding: 1%;
+}
+
+#logo_header {
+    height: 10%;
+}
+
+header {
+
+    align-items: center;
+    justify-content: center;
+    background-color:grey;
+}
+
+footer {
+    background-color:#002C3E;
+    height: 100px;
+}
