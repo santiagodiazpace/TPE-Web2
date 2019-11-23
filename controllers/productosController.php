@@ -17,9 +17,15 @@
             $this->modelCategorias = new CategoriasModel;
             $this->autHelper = new AutenticarHelper;
         }
+        
         public function showProductos(){
             $prods = $this->modelProductos->getProductos();
             $this->viewProductos->displayProductos($prods);
+        }
+
+        public function showProductosAdmin(){
+            $prods = $this->modelProductos->getProductos();
+            $this->viewProductos->displayProductosAdmin($prods);
         }
 
         public function showDetalleProducto($id_producto){
@@ -27,10 +33,15 @@
             $this->viewProductos->displayDetalleProducto($prod);
         }
 
+        public function showDetalleProductoAdmin($id_producto){
+            $prod = $this->modelProductos->getProducto($id_producto);
+            $this->viewProductos->displayDetalleProductoAdmin($prod);
+        }
+
         public function editProducto($id_producto){
             $this->autHelper->checkLogin();
             $this->modelProductos->editarProducto($id_producto,$_POST['id_categoria'],$_POST['nombre'],$_POST['precio']);
-            header("Location: " . BASE_URL);
+            header("Location: " . URL_PRODUCTOS_ADMIN);
         }
 
         public function showEditarProducto($id_producto){
@@ -48,13 +59,13 @@
         public function addProducto(){
             $this->autHelper->checkLogin();
             $this->modelProductos->insertarProducto($_POST['id_categoria'],$_POST['nombre'],$_POST['precio']);
-            header("Location: " . BASE_URL);
+            header("Location: " . URL_PRODUCTOS_ADMIN);
         }
 
         public function deleteProducto($id_producto){
             $this->autHelper->checkLogin();           
             $this->modelProductos->borrarProducto($id_producto);
-            header("Location: " . BASE_URL);
+            header("Location: " . URL_PRODUCTOS_ADMIN);
          }
 
     }

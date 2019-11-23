@@ -1,5 +1,6 @@
 {include file="header.tpl"}
-    <form action="productos/editar/{$producto->id_producto}" method="post">
+
+    <form action="productosadmin/editar/{$producto->id_producto}" method="post">
         Nombre: <input type="text" name="nombre" value="{$producto->nombre}">
         Precio: <input type="number" name="precio" value="{$producto->precio}">
         Categoria: <select type="text" name="categoria">
@@ -13,6 +14,6 @@
                 </select>
         <button type="submit">Guardar</button>
     </form>
+    <a href='{URL_PRODUCTOS_ADMIN}' >Volver</a>
 
-    <a href='{URL_PRODUCTOS}' >Volver a Inicio</a>
 {include file="footer.tpl"}

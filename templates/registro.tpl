@@ -1,7 +1,7 @@
 {include file="header.tpl"}
 
 <form action="usuarionuevo" method="POST">
-  <h4>Register with you email account</h4>
+  <h4>Registrarse con su cuenta de Email</h4>
   <label>Email
     <input name="usuario" type="text" placeholder="miemail@ejemplo.com">
   </label>
@@ -11,7 +11,7 @@
   <label>Nombre
     <input name="nombre" type="text" placeholder="Nombre">
   </label>
-  <p><input type="submit" value="registro"></p>
+  <p><input type="submit" value="Registrar"></p>
 </form>
 
 {if $error}

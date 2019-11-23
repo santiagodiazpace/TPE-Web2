@@ -6,7 +6,7 @@ class AutenticarHelper {
 	public function login($user){
 		session_start();
 		$_SESSION['userId'] = $user->id_usuario;
-		$_SESSION['usuario'] = $user->email;
+        $_SESSION['usuario'] = $user->email;
     }
     
 	public function logout(){
@@ -15,6 +15,7 @@ class AutenticarHelper {
     }
     
 	public function checkLogin(){   
+        session_start();
         if(!isset($_SESSION['userId'])){
             header("Location: " . URL_LOGIN);
             die();
@@ -26,9 +27,9 @@ class AutenticarHelper {
         $_SESSION['LAST_ACTIVITY'] = time();
     }
 
-    public function getUsuarioLogueado() {
+    /*public function getUsuarioLogueado() {
 		if (session_status() != PHP_SESSION_ACTIVE)
 		    session_start();
         return $_SESSION['usuario'];
-	}
+	}*/
 }

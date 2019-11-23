@@ -14,6 +14,13 @@
             return $categs;
         }
 
+        public function getCategoria($id_categoria){
+            $query = $this->db->prepare("SELECT * FROM categorias WHERE id_categoria=?");
+            $query->execute(array($id_categoria));
+            $cat = $query->fetch(PDO::FETCH_OBJ);
+            return $cat;           
+        }
+
         public function insertarCategoria($nombre){
             $query = $this->db->prepare("INSERT INTO categorias (nombre) VALUES(?)");
             $query->execute(array($nombre));
@@ -24,8 +31,12 @@
             $query->execute(array($id_categoria));
         }
 
-        public function modificarCategoria($id_categoria,$nombre){
-            $query = $this->db->prepare("UPDATE categorias SET nombre=? WHERE id_categoria=?");
-            $query = execute(array($id_categoria,$nombre));
+        public function editCategoria($id_categoria,$nombre){
+            $query = $this->db->prepare("UPDATE categorias SET nombre = ? WHERE id_categoria = ?");
+            $query -> execute(array($id_categoria,$nombre));
         }
+
+
+
+        
     }

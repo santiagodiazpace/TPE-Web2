@@ -1,4 +1,5 @@
 {include file="header.tpl"}
+
 <table border=1>
     <tr>
         <th>ID</th><th>NOMBRE</th>
@@ -12,4 +13,5 @@
         {/foreach}
     </tbody>
 </table>
+
 {include file="footer.tpl"}

@@ -14,7 +14,7 @@
             </tr>
         </tbody>
     </table>
-    <a href='{URL_PRODUCTOS}' >Volver</a>
+    <a href='{URL_PRODUCTOS_ADMIN}' >Volver</a>
     </body>
 </html>
 
