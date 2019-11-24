@@ -1,5 +1,6 @@
 {include file="header.tpl"}
 
+<h2>CATEGORIAS</h2>
 <table border=1>
     <tr>
         <th>ID</th><th>NOMBRE</th>
@@ -15,7 +16,7 @@
                     </form>
                 </td>
                 <td>
-                    <form action="categorias/formularioeditarcategoria/{$categoria->id_categoria}">
+                    <form action="categoriasadmin/formularioeditarcategoria/{$categoria->id_categoria}">
                         <button value="{$categoria->id_categoria}" type="submit">Editar</button>
                     </form>
                 </td>

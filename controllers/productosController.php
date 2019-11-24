@@ -58,7 +58,18 @@
 
         public function addProducto(){
             $this->autHelper->checkLogin();
-            $this->modelProductos->insertarProducto($_POST['id_categoria'],$_POST['nombre'],$_POST['precio']);
+            if ($_FILES['imagen']['name']) {
+                if ($_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/png") {                 
+                    $this->modelProductos->insertarProducto($_POST['id_categoria'],$_POST['nombre'],$_POST['precio'],$_FILES['imagen']); 
+                }
+                else {
+                    $this->productosView->showError("Formato no aceptado");
+                    die();
+                }
+            }
+            else {
+                $this->modelProductos->insertarProducto($_POST['id_categoria'],$_POST['nombre'],$_POST['precio']); 
+            }
             header("Location: " . URL_PRODUCTOS_ADMIN);
         }
 

@@ -19,6 +19,11 @@
             $this->viewCategorias->displayCategorias($categ);
         }
 
+        public function showCategoriasAdmin(){
+            $categ = $this->modelCategorias->getCategorias();
+            $this->viewCategorias->displayCategoriasAdmin($categ);
+        }
+
         public function showDetalleCategoria($id_categoria){
             $cat = $this->modelCategorias->getCategoria($id_categoria);
             $this->viewCategorias->displayDetalleCategoria($cat);
@@ -27,7 +32,7 @@
         public function editCategoria($id_categoria){
             $this->autHelper->checkLogin();
             $this->modelCategorias->editCategoria($id_categoria,$_POST['nombre']);
-            header("Location: " . URL_CATEGORIAS);
+            header("Location: " . URL_CATEGORIAS_ADMIN);
         }
 
         public function showEditarCategoria($id_categoria){
@@ -39,13 +44,13 @@
         public function addCategoria(){
             $this->autHelper->checkLogin();
             $this->modelCategorias->insertarCategoria($_POST['nombre']);
-            header("Location: " . BASE_URL);
+            header("Location: " . URL_CATEGORIAS_ADMIN);
         }
 
         public function deleteCategoria($id_categoria){
             $this->autHelper->checkLogin();           
             $this->modelCategorias->borrarCategoria($id_categoria);
-            header("Location: " . URL_CATEGORIAS);
+            header("Location: " . URL_CATEGORIAS_ADMIN);
          }
 
     }

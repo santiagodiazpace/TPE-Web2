@@ -1,4 +1,7 @@
 {include file="header.tpl"}
+
+
+
     <h2>PRODUCTOS</h2>
     <table border=1>
         <tr>
@@ -33,11 +36,12 @@
  
     <h2>INSERTAR</h2>
     <div>
-        <form action="productosadmin/insertar" method="post">
+        <form action="productosadmin/insertar" method="post" enctype="multipart/form-data">
             <div>
                 Categoria:<input type="number" name="id_categoria">
                 Nombre:<input type="text" name="nombre">
                 Precio:<input type="number" name="precio">
+                <input type="file" name="imagen" id="">
                 <button type="submit">Insertar</button>
             </div>
         </form>

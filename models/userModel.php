@@ -23,7 +23,6 @@
             $query = $this->db->prepare("SELECT * FROM usuarios WHERE autorizado = ?");
             $query->execute(array($usuario));
             $auto = $query->fetch(PDO::FETCH_OBJ);
-            var_dump($auto); 
             return $auto;
         }
         

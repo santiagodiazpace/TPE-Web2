@@ -1,5 +1,6 @@
 {include file="header.tpl"}
 
+<h2>CATEGORIAS</h2>
 <table border=1>
     <tr>
         <th>ID</th><th>NOMBRE</th>

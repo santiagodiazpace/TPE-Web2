@@ -48,5 +48,9 @@ class ProductosView {
         $smarty->assign('producto',$producto);
         $smarty->display('templates/detalle_producto_admin.tpl');
     }
+
+    public function showError($msg) {
+        echo $msg;
+    }
     
 }

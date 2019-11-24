@@ -29,9 +29,12 @@
             return $productos;
         }*/
 
-        public function insertarProducto($id_categoria,$nombre,$precio){
-            $query = $this->db->prepare("INSERT INTO productos (id_categoria, nombre, precio) VALUES(?,?,?)");
-            $query->execute(array($id_categoria,$nombre,$precio));
+        public function insertarProducto($id_categoria,$nombre,$precio,$imagen = null){
+            $filepath = null;
+            if ($imagen)
+                $filepath = $this->moveFile($imagen);  
+            $query = $this->db->prepare("INSERT INTO productos (id_categoria, nombre, precio, imagen) VALUES(?,?,?,?)");
+            $query->execute(array($id_categoria,$nombre,$precio,$filepath));
         }
 
 
@@ -44,5 +47,13 @@
             $query = $this->db->prepare("UPDATE productos SET id_categoria = ?, nombre = ?, precio = ? WHERE id_producto = ?");
             $query->execute(array($id_producto,$id_categoria,$nombre,$precio));
         }
+
+
+        private function moveFile($imagen) {
+            $filepath = "imagenes/productos/" . uniqid() . "." . strtolower(pathinfo($imagen['name'], PATHINFO_EXTENSION));          //  mueve la imagen y retorna la ubicación
+            move_uploaded_file($imagen['tmp_name'], $filepath);
+            return $filepath;
+        }
+
         
     }

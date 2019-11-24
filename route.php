@@ -11,6 +11,7 @@
     define("URL_PRODUCTOS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productos');
     define("URL_PRODUCTOS_ADMIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productosadmin');
     define("URL_CATEGORIAS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/categorias');
+    define("URL_CATEGORIAS_ADMIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/categoriasadmin');
     define("URL_LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
     define("URL_LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
     define("URL_REGISTRO", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/registrar');
@@ -58,7 +59,7 @@
                 }          
             }
 
-            if($partesURL[0] == "categorias") {                                                                    // CATEGORIAS
+            if($partesURL[0] == "categoriasadmin") {                                                                    // CATEGORIAS
                 if ((isset($partesURL[1]))&&($partesURL[1] == "insertar")){
                     $categoriasController->addCategoria();
                 }  
@@ -72,11 +73,15 @@
                     $categoriasController->showEditarCategoria($partesURL[2]);
                 }
                 else{
-                    $categoriasController->showCategorias();
+                    $categoriasController->showCategoriasAdmin();
                 }
             }
 
-            else if($partesURL[0] == "login") {                                                                        // USUARIOS
+            if($partesURL[0] == "categorias") {                                                                    // CATEGORIAS
+                $categoriasController->showCategorias();
+            }
+
+            else if($partesURL[0] == "login") {                                                                    // USUARIOS
                 $userController->showLogin();
             }
             else if($partesURL[0] == "iniciarsesion") {

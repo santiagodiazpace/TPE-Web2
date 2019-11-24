@@ -15,7 +15,7 @@
         <nav>
             <a class="boton_nav" href="{BASE_URL}">Home</a>
             <a class="boton_nav" href="{URL_PRODUCTOS}">Ver productos</a>
-            <a class="boton_nav" href="{URL_CATEGORIAS}">Ver categorias</a>
+            <a class="boton_nav" href="{URL_CATEGORIAS_ADMIN}">Ver categorias</a>
             <a class="boton_nav" href="{URL_LOGIN}">Iniciar sesión</a>
             <a class="boton_nav" href="{URL_LOGOUT}">Cerrar sesión</a>
             <a class="boton_nav" href="{URL_REGISTRO}">Registrarse</a>

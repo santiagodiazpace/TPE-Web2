@@ -14,6 +14,9 @@
             </tr>
         </tbody>
     </table>
+    {if isset($producto->imagen)}
+        <img src="{$producto->imagen}"/>
+    {/if}
     <a href='{URL_PRODUCTOS_ADMIN}' >Volver</a>
     </body>
 </html>
