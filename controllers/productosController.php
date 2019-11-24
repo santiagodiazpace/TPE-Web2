@@ -18,11 +18,6 @@
             $this->autHelper = new AutenticarHelper;
         }
         
-        public function showProductos(){
-            $prods = $this->modelProductos->getProductos();
-            $this->viewProductos->displayProductos($prods);
-        }
-
         public function showProductosAdmin(){
             $prods = $this->modelProductos->getProductos();
             $this->viewProductos->displayProductosAdmin($prods);
@@ -30,7 +25,7 @@
 
         public function showDetalleProducto($id_producto){
             $prod = $this->modelProductos->getProducto($id_producto);
-            $this->viewProductos->displayDetalleProducto($prod);
+            $this->viewProductos->displayDetalleProductoAdmin($prod);
         }
 
         public function showDetalleProductoAdmin($id_producto){

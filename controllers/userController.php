@@ -32,10 +32,7 @@
             $autorizado = $this->modelUser->getAutorizado($_POST['usuario']);
             if (!empty($usuario) && password_verify($password, $usuario->clave)){
                 $this->autHelper->login($usuario);
-                if ($autorizado == 1)
-                    header("Location: " . URL_PRODUCTOS_ADMIN); 
-                else 
-                    header("Location: " . URL_PRODUCTOS);                    
+                header("Location: " . URL_PRODUCTOS_ADMIN);                  
             } else {
                 $this->viewUser->displayLogin("Error de Sesión");
             }

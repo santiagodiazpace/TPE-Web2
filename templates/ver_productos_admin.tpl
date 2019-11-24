@@ -5,7 +5,7 @@
     <h2>PRODUCTOS</h2>
     <table border=1>
         <tr>
-            <th>ID</th><th>CATEGORIA</th><th>NOMBRE</th><th>PRECIO</th>
+            <th>ID</th><th>CATEGORIA</th><th>NOMBRE</th><th>PRECIO</th></th><th></th></th><th></th><th></th>
         </tr>
         <tbody>
             {foreach from=$productos item=producto}
@@ -15,17 +15,17 @@
                     <td>{$producto->nombre}</td>
                     <td>{$producto->precio}</td>
                     <td>
-                        <form action="productosadmin/borrar/{$producto->id_producto}">
+                        <form action="productos/borrar/{$producto->id_producto}">
                             <button value="{$producto->id_producto}" type="submit">Borrar</button>
                         </form>
                     </td>
                     <td>
-                        <form action="productosadmin/detalle/{$producto->id_producto}">
+                        <form action="productos/detalle/{$producto->id_producto}">
                             <button value="{$producto->id_producto}" type="submit">Detalle</button>
                         </form>
                     </td>
                     <td>
-                        <form action="productosadmin/formularioeditar/{$producto->id_producto}">
+                        <form action="productos/formularioeditar/{$producto->id_producto}">
                             <button value="{$producto->id_producto}" type="submit">Editar</button>
                         </form>
                     </td>
@@ -36,7 +36,7 @@
  
     <h2>INSERTAR</h2>
     <div>
-        <form action="productosadmin/insertar" method="post" enctype="multipart/form-data">
+        <form action="productos/insertar" method="post" enctype="multipart/form-data">
             <div>
                 Categoria:<input type="number" name="id_categoria">
                 Nombre:<input type="text" name="nombre">
@@ -46,7 +46,7 @@
             </div>
         </form>
     </div>
-    <br>
+    </br>
 
     </body>
 </html>

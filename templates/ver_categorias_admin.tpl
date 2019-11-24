@@ -3,7 +3,7 @@
 <h2>CATEGORIAS</h2>
 <table border=1>
     <tr>
-        <th>ID</th><th>NOMBRE</th>
+        <th>ID</th><th>NOMBRE</th><th></th><th></th>
     </tr>
     <tbody>
         {foreach from=$categorias item=categoria}
@@ -16,7 +16,7 @@
                     </form>
                 </td>
                 <td>
-                    <form action="categoriasadmin/formularioeditarcategoria/{$categoria->id_categoria}">
+                    <form action="categorias/formularioeditarcategoria/{$categoria->id_categoria}">
                         <button value="{$categoria->id_categoria}" type="submit">Editar</button>
                     </form>
                 </td>
@@ -24,5 +24,16 @@
         {/foreach}
     </tbody>
 </table>
+
+<h2>INSERTAR</h2>
+<div>
+    <form action="categorias/insertar" method="post">
+        <div>
+            Nombre:<input type="text" name="nombre">
+            <button type="submit">Insertar</button>
+        </div>
+    </form>
+</div>
+</br>
 
 {include file="footer.tpl"}

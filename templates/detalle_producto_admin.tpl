@@ -17,6 +17,7 @@
     {if isset($producto->imagen)}
         <img src="{$producto->imagen}"/>
     {/if}
+    </br>
     <a href='{URL_PRODUCTOS_ADMIN}' >Volver</a>
     </body>
 </html>

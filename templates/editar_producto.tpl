@@ -1,6 +1,10 @@
 {include file="header.tpl"}
 
-    <form action="productosadmin/editar/{$producto->id_producto}" method="post">
+    {if isset($producto->imagen)}
+        <img src="{$producto->imagen}"/>
+    {/if}
+
+    <form action="productos/editar/{$producto->id_producto}" method="post">
         Nombre: <input type="text" name="nombre" value="{$producto->nombre}">
         Precio: <input type="number" name="precio" value="{$producto->precio}">
         Categoria: <select type="text" name="categoria">
@@ -12,8 +16,11 @@
                     {/if}
                     {/foreach}
                 </select>
+        Imagen: <input type="file" name="imagen" value="{$producto->imagen}">
         <button type="submit">Guardar</button>
     </form>
-    <a href='{URL_PRODUCTOS_ADMIN}' >Volver</a>
+
+    <a href='{URL_PRODUCTOS_ADMIN}' >Volver</a>    </br>
+
 
 {include file="footer.tpl"}

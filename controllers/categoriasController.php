@@ -14,11 +14,6 @@
             $this->autHelper = new AutenticarHelper;
         }
 
-        public function showCategorias(){
-            $categ = $this->modelCategorias->getCategorias();
-            $this->viewCategorias->displayCategorias($categ);
-        }
-
         public function showCategoriasAdmin(){
             $categ = $this->modelCategorias->getCategorias();
             $this->viewCategorias->displayCategoriasAdmin($categ);

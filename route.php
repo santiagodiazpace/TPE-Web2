@@ -4,17 +4,15 @@
     require_once('controllers/userController.php');
     require_once('controllers/indexController.php');
 
-
     $action = $_GET["action"];
 
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
-    define("URL_PRODUCTOS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productos');
-    define("URL_PRODUCTOS_ADMIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productosadmin');
-    define("URL_CATEGORIAS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/categorias');
-    define("URL_CATEGORIAS_ADMIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/categoriasadmin');
+    define("URL_PRODUCTOS_ADMIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productos');
+    define("URL_CATEGORIAS_ADMIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/categorias');
     define("URL_LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
     define("URL_LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
     define("URL_REGISTRO", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/registrar');
+
 
     $productosController = new ProductosController();
     $categoriasController = new CategoriasController();
@@ -22,14 +20,12 @@
     $indexController = new indexController();
 
     if($action == ''){
-        //$productosController->showProductos();
         $indexController->showIndex();
     }
     else{
         if (isset($action)){
             $partesURL = explode("/", $action);
-
-            if($partesURL[0] == "productosadmin"){                                                                  // PRODUCTOS ADMIN
+            if($partesURL[0] == "productos"){
                 if ((isset($partesURL[1]))&&($partesURL[1] == "insertar")){
                     $productosController->addProducto();
                 }  
@@ -48,18 +44,8 @@
                 else{
                     $productosController->showProductosAdmin();
                 }
-            } 
-
-            if($partesURL[0] == "productos"){                                                                         // PRODUCTOS
-                if ((isset($partesURL[1]))&&(isset($partesURL[2]))&&($partesURL[1] == "detalle")){
-                    $productosController->showDetalleProducto($partesURL[2]);
-                }
-                else{
-                    $productosController->showProductos();
-                }          
             }
-
-            if($partesURL[0] == "categoriasadmin") {                                                                    // CATEGORIAS
+            else if($partesURL[0] == "categorias") {
                 if ((isset($partesURL[1]))&&($partesURL[1] == "insertar")){
                     $categoriasController->addCategoria();
                 }  
@@ -72,16 +58,14 @@
                 else if ((isset($partesURL[1]))&&(isset($partesURL[2]))&&($partesURL[1] == "formularioeditarcategoria")){
                     $categoriasController->showEditarCategoria($partesURL[2]);
                 }
+                else if ((isset($partesURL[1]))&&(isset($partesURL[2]))&&($partesURL[1] == "detalle")){
+                    $categoriasController->showDetalleCategoriaAdmin($partesURL[2]);
+                }
                 else{
                     $categoriasController->showCategoriasAdmin();
-                }
+                }                      
             }
-
-            if($partesURL[0] == "categorias") {                                                                    // CATEGORIAS
-                $categoriasController->showCategorias();
-            }
-
-            else if($partesURL[0] == "login") {                                                                    // USUARIOS
+            else if($partesURL[0] == "login") {
                 $userController->showLogin();
             }
             else if($partesURL[0] == "iniciarsesion") {
