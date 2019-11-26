@@ -4,7 +4,7 @@
 }
 
 #logo_header {
-    height: 10%;
+    height: 7%;
 }
 
 header {
@@ -25,14 +25,14 @@ footer {
 
 .boton_nav {
     text-decoration: none;
-    font-size: 20px;
+    font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0px 5px;
     padding: 5px;
 }
 
 #imagen_principal {
-    width: 100%;
+    width: 90%;
 }
 
 h2 {

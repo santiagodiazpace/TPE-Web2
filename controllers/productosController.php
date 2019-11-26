@@ -35,7 +35,7 @@
 
         public function editProducto($id_producto){
             $this->autHelper->checkLogin();
-            $this->modelProductos->editarProducto($id_producto,$_POST['id_categoria'],$_POST['nombre'],$_POST['precio']);
+            $this->modelProductos->editarProducto($id_producto,$_POST['categoria'],$_POST['nombre'],$_POST['precio']);
             header("Location: " . URL_PRODUCTOS_ADMIN);
         }
 

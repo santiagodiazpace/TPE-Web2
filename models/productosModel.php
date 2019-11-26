@@ -45,7 +45,7 @@
 
         public function editarProducto($id_producto,$id_categoria,$nombre,$precio){
             $query = $this->db->prepare("UPDATE productos SET id_categoria = ?, nombre = ?, precio = ? WHERE id_producto = ?");
-            $query->execute(array($id_producto,$id_categoria,$nombre,$precio));
+            $query->execute(array($id_categoria,$nombre,$precio,$id_producto));
         }
 
 

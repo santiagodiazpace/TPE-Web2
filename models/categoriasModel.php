@@ -33,7 +33,7 @@
 
         public function editCategoria($id_categoria,$nombre){
             $query = $this->db->prepare("UPDATE categorias SET nombre = ? WHERE id_categoria = ?");
-            $query -> execute(array($id_categoria,$nombre));
+            $query -> execute(array($nombre, $id_categoria));
         }
 
 
