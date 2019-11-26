@@ -2,7 +2,7 @@
     require_once('./views/productosView.php');
     require_once('./models/productosModel.php');
     require_once("./models/categoriasModel.php");
-    require_once("./helpers/autenticar.helper.php");
+    require_once("./helpers/autenticarHelper.php");
 
     
     class ProductosController {

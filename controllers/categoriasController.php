@@ -1,7 +1,7 @@
 <?php
     require_once('./models/categoriasModel.php');
     require_once('./views/categoriasView.php');
-    require_once("./helpers/autenticar.helper.php");
+    require_once("./helpers/autenticarHelper.php");
 
     class CategoriasController {
         

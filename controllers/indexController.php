@@ -1,7 +1,7 @@
 <?php
     require_once('./views/indexView.php');
     require_once('./models/userModel.php');    
-    require_once("./helpers/autenticar.helper.php");
+    require_once("./helpers/autenticarHelper.php");
 
     class IndexController {
 
