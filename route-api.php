@@ -1,4 +1,5 @@
 <?php
+
 require_once("Router.php");
 require_once("./api/comentariosApiController.php");
 
@@ -18,7 +19,6 @@ $router->addRoute("comentarios", "GET", "comentariosApiController", "getComentar
 $router->addRoute("comentarios/:ID", "GET", "comentariosApiController", "getComentario");
 $router->addRoute("comentarios/:ID", "DELETE", "comentariosApiController", "deleteComentario");
 $router->addRoute("comentarios", "POST", "comentariosApiController", "addComentario");
-$router->addRoute("comentarios/:ID", "PUT", "comentariosApiController", "updateComentario");
 
 // rutea
 $router->route($resource, $method);

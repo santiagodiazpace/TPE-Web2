@@ -7,6 +7,8 @@ class AutenticarHelper {
 		session_start();
 		$_SESSION['userId'] = $user->id_usuario;
         $_SESSION['usuario'] = $user->email;
+        $_SESSION['USERNAME'] = $user->nombre;           
+        $_SESSION['USER_TYPE'] = $user->autorizado;
     }
     
 	public function logout(){
@@ -26,6 +28,16 @@ class AutenticarHelper {
         } 
         $_SESSION['LAST_ACTIVITY'] = time();
     }
+
+    public function getLoggedUser() {
+        if (! isset($_SESSION['USERNAME'])) {
+           return null;
+        }
+        else{
+            return $_SESSION;
+        }
+    }
+
 
     /*public function getUsuarioLogueado() {
 		if (session_status() != PHP_SESSION_ACTIVE)

@@ -25,15 +25,18 @@
     </tbody>
 </table>
 
-<h2>INSERTAR</h2>
-<div>
-    <form action="categorias/insertar" method="post">
-        <div>
-            Nombre:<input type="text" name="nombre">
-            <button type="submit">Insertar</button>
-        </div>
-    </form>
-</div>
+{if isset($smarty.session.userId) && $smarty.session.USER_TYPE ==1 }
+    <h2>INSERTAR</h2>
+    <div>
+        <form action="categorias/insertar" method="post">
+            <div>
+                Nombre:<input type="text" name="nombre">
+                <button type="submit">Insertar</button>
+            </div>
+        </form>
+    </div>
+{/if}
+
 </br>
 
 {include file="footer.tpl"}

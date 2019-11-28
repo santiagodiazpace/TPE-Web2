@@ -8,24 +8,28 @@
             $this->tabla="comentarios";
         }
 
-
-        public function getComentario($id_comentario){
-
+        public function getModelComentarios(){
+            $query = $this->db->prepare( "SELECT * from comentarios");
+            $query->execute();
+            $comentarios = $query->fetchAll(PDO::FETCH_OBJ);           
+            return $comentarios;
         }
 
-        public function getComentarios(){
-
+        public function getModelComentario($id_comentario){
+            $query = $this->db->prepare( "SELECT * from comentarios where id_comentario = ?");
+            $query->execute([$id_comentario]);
+            $comentario = $query->fetch(PDO::FETCH_OBJ);            
+            return $comentario;
         }
-
+    
         public function borrarComentario($id_comentario){
-
+            $query = $this->db->prepare("DELETE FROM comentarios WHERE id_comentario=?");
+            $query->execute(array($id_comentario));  
         }
 
-        public function insertarComentario($id_producto, $fecha, $descripcion, $puntos){
-
+        public function insertarComentario($id_producto, $descripcion, $puntos, $nombre_usuario){
+            $query = $this->db->prepare("INSERT INTO comentarios(id_producto, descripcion, puntos, nombre_usuario) VALUES(?,?,?,?)");
+            $query->execute(array($id_producto, $descripcion, $puntos, $nombre_usuario));
         }
-
-        public function actualizarComentario($id_producto, $fecha, $descripcion, $puntos){
-
-        }
+    }
 

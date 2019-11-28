@@ -15,6 +15,7 @@
         }
 
         public function showCategoriasAdmin(){
+            session_start();
             $categ = $this->modelCategorias->getCategorias();
             $this->viewCategorias->displayCategoriasAdmin($categ);
         }

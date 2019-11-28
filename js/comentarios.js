@@ -1,21 +1,5 @@
 "use strict"
 
-// event listeners
-document.querySelector("#form-comentario").addEventListener('submit', addComentario);
-
-// define la app Vue
-let app = new Vue({
-    el: "#template-vue-comentarios",
-    data: {
-        subtitle: "Estos comentarios se renderizan desde el cliente usando Vue.js",
-        comentarios: [], 
-        auth: true
-    }
-});
-
-/**
- * Obtiene la lista de comentarios de la API y los renderiza con Vue.
- */
 function getComentarios() {
     fetch("api/comentarios")
     .then(response => response.json())
@@ -25,17 +9,29 @@ function getComentarios() {
     .catch(error => console.log(error));
 }
 
-/**
- * Inserta un comentario usando la API REST.
- */
+
+// event listeners
+document.querySelector("#form-comentario").addEventListener('submit', addComentario);
+
+// define la app Vue
+let app = new Vue({
+    el: "#vue-comentarios",
+    data: {
+        subtitle: "Comentarios renderizados usando Vue.js",
+        comentarios: [], 
+        auth: true
+    }
+});
+
+
 function addComentario(e) {
     e.preventDefault();
     
     let data = {
-        fecha:  document.querySelector("input[name=fecha]").value,
-        idproducto:  document.querySelector("input[name=idproducto]").value,
+        id_producto:  document.querySelector("input[name=id_producto]").value,
         descripcion:  document.querySelector("input[name=descripcion]").value,
-        puntos:  document.querySelector("input[name=puntos]").value
+        puntos:  document.querySelector("input[name=puntos]").value,
+        nombre_usuario:  document.querySelector("input[name=nombre_usuario]").value
     }
 
     fetch('api/comentarios', {

@@ -19,6 +19,7 @@
         }
         
         public function showProductosAdmin(){
+            session_start();
             $prods = $this->modelProductos->getProductos();
             $this->viewProductos->displayProductosAdmin($prods);
         }

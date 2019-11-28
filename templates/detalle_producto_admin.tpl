@@ -1,4 +1,5 @@
 {include file="header.tpl"}
+
     <h2>DETALLE DEL PRODUCTO</h2>
     <table border=1>
         <tr>
@@ -19,7 +20,11 @@
     {/if}
     </br>
     <a href='{URL_PRODUCTOS_ADMIN}' >Volver</a>
+    </br>
     </body>
+
+{include file="ver_comentarios_csr.tpl"}
+
 </html>
 
 {include file="footer.tpl"}

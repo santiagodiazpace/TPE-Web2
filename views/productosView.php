@@ -37,5 +37,13 @@ class ProductosView {
     public function showError($msg) {
         echo $msg;
     }
-    
+ 
+    public function displayComentariosCSR(){
+        $smarty = new Smarty();
+        $smarty->assign('titulo',"Lista de Comentarios CSR");
+        $smarty->assign('BASE_URL',BASE_URL);
+        $smarty->display('templates/ver_comentarios_csr.tpl');
+    }
+
+
 }

@@ -5,7 +5,7 @@
     <h2>PRODUCTOS</h2>
     <table border=1>
         <tr>
-            <th>ID</th><th>CATEGORIA</th><th>NOMBRE</th><th>PRECIO</th></th><th></th></th><th></th><th></th>
+            <th>ID</th><th> CATEGORIA </th><th> NOMBRE </th><th> PRECIO $ </th></th><th></th></th><th></th><th></th>
         </tr>
         <tbody>
             {foreach from=$productos item=producto}
@@ -34,20 +34,22 @@
         </tbody>
     </table>
  
-    <h2>INSERTAR</h2>
-    <div>
-        <form action="productos/insertar" method="post" enctype="multipart/form-data">
-            <div>
-                Categoria:<input type="number" name="id_categoria">
-                Nombre:<input type="text" name="nombre">
-                Precio:<input type="number" name="precio">
-                <input type="file" name="imagen" id="">
-                <button type="submit">Insertar</button>
-            </div>
-        </form>
-    </div>
-    </br>
+    {if isset($smarty.session.userId) && $smarty.session.USER_TYPE ==1 }
+        <h2>INSERTAR</h2>
+        <div>
+            <form action="productos/insertar" method="post" enctype="multipart/form-data">
+                <div>
+                    Categoria:<input type="number" name="id_categoria">
+                    Nombre:<input type="text" name="nombre">
+                    Precio:<input type="number" name="precio">
+                    <input type="file" name="imagen" id="">
+                    <button type="submit">Insertar</button>
+                </div>
+            </form>
+        </div>
+    {/if}
 
+    </br>
     </body>
 </html>
 
