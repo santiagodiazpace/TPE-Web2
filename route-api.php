@@ -19,6 +19,7 @@ $router->addRoute("comentarios", "GET", "comentariosApiController", "getComentar
 $router->addRoute("comentarios/:ID", "GET", "comentariosApiController", "getComentario");
 $router->addRoute("comentarios/:ID", "DELETE", "comentariosApiController", "deleteComentario");
 $router->addRoute("comentarios", "POST", "comentariosApiController", "addComentario");
+$router->addRoute("productos/:ID/promedio", "GET", "comentariosApiController", "getPromedio");
 
 // rutea
 $router->route($resource, $method);

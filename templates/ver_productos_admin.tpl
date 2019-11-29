@@ -15,9 +15,11 @@
                     <td>{$producto->nombre}</td>
                     <td>{$producto->precio}</td>
                     <td>
-                        <form action="productos/borrar/{$producto->id_producto}">
-                            <button value="{$producto->id_producto}" type="submit">Borrar</button>
-                        </form>
+                        {if isset($smarty.session.userId)}    
+                            <form action="productos/borrar/{$producto->id_producto}">
+                                <button value="{$producto->id_producto}" type="submit">Borrar</button>
+                            </form>
+                        {/if}    
                     </td>
                     <td>
                         <form action="productos/detalle/{$producto->id_producto}">
@@ -25,9 +27,11 @@
                         </form>
                     </td>
                     <td>
-                        <form action="productos/formularioeditar/{$producto->id_producto}">
-                            <button value="{$producto->id_producto}" type="submit">Editar</button>
-                        </form>
+                        {if isset($smarty.session.userId)}  
+                            <form action="productos/formularioeditar/{$producto->id_producto}">
+                                <button value="{$producto->id_producto}" type="submit">Editar</button>
+                            </form>
+                        {/if}   
                     </td>
                 </tr>
             {/foreach}   

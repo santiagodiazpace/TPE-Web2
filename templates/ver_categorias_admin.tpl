@@ -11,14 +11,18 @@
                 <td>{$categoria->id_categoria}</td>
                 <td>{$categoria->nombre}</td>
                 <td>
-                    <form action="categorias/borrar/{$categoria->id_categoria}">
-                        <button value="{$categoria->id_categoria}" type="submit">Borrar</button>
-                    </form>
+                    {if isset($smarty.session.userId)} 
+                        <form action="categorias/borrar/{$categoria->id_categoria}">
+                            <button value="{$categoria->id_categoria}" type="submit">Borrar</button>
+                        </form>
+                    {/if}
                 </td>
                 <td>
-                    <form action="categorias/formularioeditarcategoria/{$categoria->id_categoria}">
-                        <button value="{$categoria->id_categoria}" type="submit">Editar</button>
-                    </form>
+                    {if isset($smarty.session.userId)} 
+                        <form action="categorias/formularioeditarcategoria/{$categoria->id_categoria}">
+                            <button value="{$categoria->id_categoria}" type="submit">Editar</button>
+                        </form>
+                    {/if}
                 </td>
             </tr>
         {/foreach}

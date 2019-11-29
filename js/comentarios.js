@@ -47,3 +47,31 @@ function addComentario(e) {
 
 // obtiene los comentarios al inicio
 getComentarios();
+
+
+function borrarComentario (id_comentario){
+    event.preventDefault();
+    id = document.querySelector("input[name=id_producto]").value;
+
+    fetch("/api/comentarios/" + id_comment,{
+        method: 'DELETE',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+    }).then (response =>{
+        getComentarios(id);
+        getPromedio(id);
+    })
+    .catch(error=>console.log(error));
+}
+
+function getPromedio(id_producto){
+    let url = "api/comentarios/" + id_producto + "/promedio";
+    fetch(url)
+    .then(response => response.json())
+    .then(promedio => {
+        app.prom = promedio;
+    })
+    .catch(error => console.log(error));
+
+}
